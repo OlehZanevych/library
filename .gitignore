@@ -9,8 +9,10 @@
 *.ear
 .metadata
 .idea
-*/target/*
+target/*
 */bin/*
 *.cache
 # Temp Files #
 *~
+# Database
+data/*
