@@ -1,11 +1,11 @@
 # Book Library
-A very simple Java project with the console interaface for library managing.
+A very simple Java project with the console interface for library managing.
 
-## Available сommands
+## Available commands
 - *add {book_author} "{book_name}"* – adding new book
 - *remove {book_name}* – removing book with such name
 - *edit {book_name}* – editing book with such name
-- *all books [author "{book_author_substring}"] [name "{book_name_substring}"]* – searching books
+- *all books [author "{book_author_substring}"] [name "{book_name_substring}"]* – case insensitive book searching
 - *clean* – removing all books
 - *exit* – stopping application execution
 

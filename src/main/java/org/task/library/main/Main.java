@@ -25,7 +25,7 @@ public class Main {
 		
 		System.out.print("P: ");
 		System.out.println("I'm Book Library and I'm ready to work. "
-				+"I'm waiting for your commands. Please write");
+				+"I'm waiting for your commands. Please write \\ (•◡•) /");
 		
 		while (IS_ALIVE) {
 			System.out.print("U: ");

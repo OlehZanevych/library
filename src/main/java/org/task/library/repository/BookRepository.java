@@ -20,11 +20,13 @@ import org.task.library.model.Book;
  */
 public class BookRepository {
 	
-	private static final String QUERY = "FROM Book ORDER BY name, author";
+	private static final String QUERY = "FROM Book ORDER BY LOWER(name), LOWER(author)";
 	
-	private static final String FIND_BY_NAME_QUERY = "FROM Book WHERE name = :name ORDER BY name, author";
+	private static final String FIND_BY_NAME_QUERY = "FROM Book WHERE name = :name "
+			+ "ORDER BY LOWER(name), LOWER(author)";
 	
-	private static final String IS_EXISTED_QUERY = "SELECT TRUE FROM Book WHERE name = :name AND author = :author";
+	private static final String IS_EXISTED_QUERY = "SELECT TRUE FROM Book WHERE name = :name "
+			+ "AND author = :author";
 	
 	private static final String GET_ANOTHER_CASE = "FROM Book WHERE LOWER(name) = LOWER(:name) "
 			+ "AND LOWER(author) = LOWER(:author)";
@@ -70,7 +72,7 @@ public class BookRepository {
 	}
 	
 	/**
-	 * Searching books by matching case sensitive like conditions
+	 * Searching books by matching case insensitive like conditions
 	 * for books name and author.
 	 * 
 	 * @param parameters Appropriate parameters whose values
@@ -87,8 +89,8 @@ public class BookRepository {
 		
 		@SuppressWarnings("deprecation")
 		Criteria criteria = session.createCriteria(Book.class)
-				.addOrder(Order.asc("name"))
-				.addOrder(Order.asc("author"));
+				.addOrder(Order.asc("name").ignoreCase())
+				.addOrder(Order.asc("author").ignoreCase());
 		for (Entry<String, String> parameter: parameters.entrySet()) {
 			criteria.add(Restrictions.ilike(parameter.getKey(), parameter.getValue(),
 					MatchMode.ANYWHERE));
@@ -138,7 +140,7 @@ public class BookRepository {
 	}
 	
 	@Override
-    protected void finalize() {
+	protected void finalize() {
 		session.close();
     }
 

@@ -1,0 +1,117 @@
+P: I'm Book Library and I'm ready to work. I'm waiting for your commands. Please write \ (•◡•) /
+U: all books
+P: Pity to say, but we do not have any books :((
+U: add Ian McGuire "The North Water"
+P: Book Ian McGuire "The North Water" was added
+U: add Colson Whitehead "The Underground Railroad"
+P: Book Colson Whitehead "The Underground Railroad" was added
+U: add Han Kang "The Vegetarian"
+P: Book Han Kang "The Vegetarian" was added
+U: add Stefan Hertmans "War and Turpentine"
+P: Book Stefan Hertmans "War and Turpentine" was added
+U: add Susan Faludi "in the Darkroom"
+P: Book Susan Faludi "in the Darkroom" was added
+U:   add    Susan    Faludi "   in  the    Darkroom    "
+P: Book Susan Faludi "in the Darkroom" already exists
+U: all books
+P: Our books: 
+      Susan Faludi "in the Darkroom"
+      Ian McGuire "The North Water"
+      Colson Whitehead "The Underground Railroad"
+      Han Kang "The Vegetarian"
+      Stefan Hertmans "War and Turpentine"
+U: add Susan Faludi "In the Darkroom"
+P: There is a book Susan Faludi "in the Darkroom" which has same author and name, but only in another case. If you want to replace it with new ones, press y. Otherwise, enter any other character
+U: y
+P: Book Susan Faludi "In the Darkroom" was updated
+U: all books
+P: Our books: 
+      Susan Faludi "In the Darkroom"
+      Ian McGuire "The North Water"
+      Colson Whitehead "The Underground Railroad"
+      Han Kang "The Vegetarian"
+      Stefan Hertmans "War and Turpentine"
+U: remove The North Water
+P: Book Ian McGuire "The North Water" was removed
+U: add Frances Hodgson Burnett "A Little Princess"
+P: Book Frances Hodgson Burnett "A Little Princess" was added
+U: add Angel de Kuate "A Little Princess"
+P: Book Angel de Kuate "A Little Princess" was added
+U: add Mikhail Shcherbaty "A Little Princess"
+P: Book Mikhail Shcherbaty "A Little Princess" was added
+U: remove A Little Princess
+P: There are 3 books with name "A Little Princess" written by different authors:
+      1. Angel de Kuate
+      2. Frances Hodgson Burnett
+      3. Mikhail Shcherbaty
+Please enter number of author whose book want to remove or any non digital character or 0 to cancel
+U: 3
+P: Book Mikhail Shcherbaty "A Little Princess" was removed
+U: all books
+P: Our books: 
+      Angel de Kuate "A Little Princess"
+      Frances Hodgson Burnett "A Little Princess"
+      Susan Faludi "In the Darkroom"
+      Colson Whitehead "The Underground Railroad"
+      Han Kang "The Vegetarian"
+      Stefan Hertmans "War and Turpentine"
+U: remove The North Water
+P: Book with name "The North Water" doesn't exist. Please check if you have entered it correct
+U: add Suzanne Collins "The Hynger Games"
+P: Book Suzanne Collins "The Hynger Games" was added
+U: edit The Hynger Games
+P: Please enter new author and name of the book Suzanne Collins "The Hynger Games"
+U: Suzanne Collins "The Hunger Games"
+P: Book Suzanne Collins "The Hunger Games" was updated
+U: edit A Little Princess
+P: There are 2 books with name "A Little Princess" written by different authors:
+      1. Angel de Kuate
+      2. Frances Hodgson Burnett
+Please enter number of author whose book want to edit or any non digital character or 0 to cancel
+U: n
+P: Editing canceled
+U: edit A Little Princess
+P: There are 2 books with name "A Little Princess" written by different authors:
+      1. Angel de Kuate
+      2. Frances Hodgson Burnett
+Please enter number of author whose book want to edit or any non digital character or 0 to cancel
+U: 2
+P: Please enter new author and name of the book Frances Hodgson Burnett "A Little Princess"
+U: Mikhail Shcherbaty "A Little Princess"
+P: Book Mikhail Shcherbaty "A Little Princess" was updated
+U: all books
+P: Our books: 
+      Angel de Kuate "A Little Princess"
+      Mikhail Shcherbaty "A Little Princess"
+      Susan Faludi "In the Darkroom"
+      Suzanne Collins "The Hunger Games"
+      Colson Whitehead "The Underground Railroad"
+      Han Kang "The Vegetarian"
+      Stefan Hertmans "War and Turpentine"
+U: all books author "an"
+P: Found books: 
+      Angel de Kuate "A Little Princess"
+      Susan Faludi "In the Darkroom"
+      Suzanne Collins "The Hunger Games"
+      Han Kang "The Vegetarian"
+      Stefan Hertmans "War and Turpentine"
+U: all books author "ang"
+P: Found books: 
+      Angel de Kuate "A Little Princess"
+      Han Kang "The Vegetarian"
+U: all books author "ang" name "eg"
+P: Found books: 
+      Han Kang "The Vegetarian"
+U: clean
+P: All books removed :((
+U: all books
+P: Pity to say, but we do not have any books :((
+U: all books author "ang" name "eg"
+P: No books found :((
+U: exite
+P: Сommand `exite` doesn't exist. Please write carefully (¬‿¬)
+U: 
+P: Please don't write empty commands ( ͡° ͜ʖ ͡°)
+U: exit
+P: Goodbye :))
+

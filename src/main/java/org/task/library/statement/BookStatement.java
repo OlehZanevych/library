@@ -73,8 +73,8 @@ public class BookStatement {
 	 */
 	protected void add(final String statement) {
 		if (statement == null) {
-			System.out.println("Invalid add command. You must enter the book author and "
-					+ "name in quotes. For example, add Karan Mahajan "
+			System.out.println("Invalid `add` command. You must enter the book author and "
+					+ "its name in quotes. For example, add Karan Mahajan "
 					+"\"The Association of Small Bombs\"");
 			return;
 		}
@@ -108,10 +108,11 @@ public class BookStatement {
 			}
 			
 			bookRepository.add(book);
-			System.out.println(String.format("Book %s was was added", book));
+			System.out.println(String.format("Book %s was added", book));
 		} else {
-			System.out.println("Invalid statement of add command. You must enter the book author and "
-					+ "its name in quotes. For example, add Karan Mahajan \"The Association of Small Bombs\"");
+			System.out.println("Invalid statement of `add` command. You must enter the book author and "
+					+ "its name in quotes. For example, add Karan Mahajan "
+					+ "\"The Association of Small Bombs\"");
 		}
 	}
 	
@@ -122,7 +123,7 @@ public class BookStatement {
 	 */
 	protected void remove(final String name) {
 		if (name == null) {
-			System.out.println("Invalid remove command. You must enter the name of the book. "
+			System.out.println("Invalid `remove` command. You must enter the name of the book. "
 					+ "For example, remove A Little Princess");
 			return;
 		}
@@ -146,15 +147,17 @@ public class BookStatement {
 		System.out.println(String.format("There are %d books with name \"%s\" "
 				+ "written by different authors:", books.size(), name));
 		for (Book book: books) {
-			System.out.println(String.format("%3d. %s", i, book.getAuthor()));
+			System.out.println(String.format("%3s %3d. %s", "", i, book.getAuthor()));
 			++i;
 		}
 		System.out.println("Please enter number of author whose book want to remove "
 				+ "or any non digital character or 0 to cancel");
 		System.out.print("U: ");
 		String line = Main.nextLine().trim();
+		System.out.print("P: ");
 		char firstCharacter = line.charAt(0);
 		if (firstCharacter < '1' || firstCharacter > '9') {
+			System.out.println("Removing canceled");
 			return;
 		}
 		Pattern pattern = Pattern.compile("(\\d+)");
@@ -162,7 +165,8 @@ public class BookStatement {
 		matcher.find();
 		int position = Integer.parseInt(matcher.group(1));
 		if (position > books.size()) {
-			System.out.println(String.format("Number %d doesn't match any author. Removing canceled", position));
+			System.out.println(String.format("Number %d doesn't match any author. Removing canceled",
+					position));
 			return;
 		}
 		Book book = books.get(position - 1);
@@ -177,7 +181,7 @@ public class BookStatement {
 	 */
 	protected void edit(final String name) {
 		if (name == null) {
-			System.out.println("Invalid remove command. You must enter the name of the book. "
+			System.out.println("Invalid `edit` command. You must enter the name of the book. "
 					+ "For example, edit A Little Princess");
 			return;
 		}
@@ -199,15 +203,17 @@ public class BookStatement {
 		System.out.println(String.format("There are %d books with name \"%s\" "
 				+ "written by different authors:", books.size(), name));
 		for (Book book: books) {
-			System.out.println(String.format("%3d. %s", i, book.getAuthor()));
+			System.out.println(String.format("%3s %3d. %s", "", i, book.getAuthor()));
 			++i;
 		}
 		System.out.println("Please enter number of author whose book want to edit "
 				+ "or any non digital character or 0 to cancel");
 		System.out.print("U: ");
 		String line = Main.nextLine().trim();
+		System.out.print("P: ");
 		char firstCharacter = line.charAt(0);
 		if (firstCharacter < '1' || firstCharacter > '9') {
+			System.out.println("Editing canceled");
 			return;
 		}
 		Pattern numericalPattern = Pattern.compile("(\\d+)");
@@ -215,7 +221,8 @@ public class BookStatement {
 		numericalMatcher.find();
 		int position = Integer.parseInt(numericalMatcher.group(1));
 		if (position > books.size()) {
-			System.out.println(String.format("Number %d doesn't match any author. Editing canceled", position));
+			System.out.println(String.format("Number %d doesn't match any author. Editing canceled",
+					position));
 			return;
 		}
 		editBook(books.get(position - 1));
@@ -228,7 +235,8 @@ public class BookStatement {
 	 */
 	protected void all(final String statement) {
 		if (statement == null) {
-			System.out.println("Please use `all books` command. Simple command `all` doesn't exist ( ͡° ͜ʖ");
+			System.out.println("Please use `all books` command. Simple command `all` "
+					+ "doesn't exist ( ͡° ͜ʖ");
 			return;
 		}
 		
@@ -273,7 +281,7 @@ public class BookStatement {
 				System.out.println("Our books: ");
 			}
 			for (Book book: books) {
-				System.out.println(String.format("%10s %10s", "", book));
+				System.out.println(String.format("%5s %10s", "", book));
 			}
 		}
 	}
@@ -283,6 +291,7 @@ public class BookStatement {
 	 */
 	protected void clean() {
 		bookRepository.removeAll();
+		System.out.println("All books removed :((");
 	}
 	
 	/**
@@ -302,7 +311,7 @@ public class BookStatement {
 		if (command.isEmpty()) {
 			System.out.println("Please don't write empty commands ( ͡° ͜ʖ ͡°)");
 		} else {
-			System.out.println(String.format("Сommand %s doesn't exist. "
+			System.out.println(String.format("Сommand `%s` doesn't exist. "
 					+ "Please write carefully (¬‿¬)", command));
 		}
 	}
@@ -315,31 +324,30 @@ public class BookStatement {
 	protected void editBook(final Book book) {
 		System.out.println(String.format("Please enter new author and name of the book %s", book));
 		System.out.print("U: ");
-		
 		String statement = Main.nextLine().trim().replaceAll("\\s+", " ");
+		System.out.print("P: ");
 		
 		Pattern pattern = Pattern.compile("(.+?)[\"](.+)[\"]");
 		Matcher matcher = pattern.matcher(statement);
 		
 		if (matcher.find()) {
-			book.setAuthor(matcher.group(1).trim());
-			book.setName(matcher.group(2).trim());
-			if (bookRepository.isExisted(book)) {
-				System.out.println(String.format("Book %s already exists. Editing canceled", book));
+			Book newBook = new Book(matcher.group(1).trim(), matcher.group(2).trim());
+			if (bookRepository.isExisted(newBook)) {
+				System.out.println(String.format("Book %s already exists. Editing canceled", newBook));
 				return;
 			}
 			
-			Book anotherCaseBook = bookRepository.getAnotherCase(book);
+			Book anotherCaseBook = bookRepository.getAnotherCase(newBook);
 			if (anotherCaseBook != null) {
 				System.out.println(String.format("There is a book %s which has same author and name, "
 						+ "but only in another case. If you want to replace it with "
-						+ "new ones, press y. Otherwise, to cancel the operation enter any other character",
-						anotherCaseBook));
+						+ "new ones, press y. Otherwise, to cancel the operation enter any other "
+						+ "character", anotherCaseBook));
 				System.out.print("U: ");
 				String line = Main.nextLine().trim();
 				System.out.print("P: ");
 				if (!line.isEmpty() && line.substring(0, 1).toLowerCase().equals("y")) {
-					anotherCaseBook.setData(book);
+					anotherCaseBook.setData(newBook);
 					bookRepository.update(anotherCaseBook);
 					System.out.println(String.format("Book %s was updated", anotherCaseBook));
 				} else {
@@ -348,8 +356,9 @@ public class BookStatement {
 				return;
 			}
 			
+			book.setData(newBook);
 			bookRepository.update(book);
-			System.out.println(String.format("Book %s was was updated", book));
+			System.out.println(String.format("Book %s was updated", book));
 		} else {
 			System.out.println("Invalid statement. You must enter the book author and its name "
 					+ "in quotes. For example, Karan Mahajan \"The Association of Small Bombs\". "
