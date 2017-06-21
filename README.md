@@ -15,4 +15,5 @@ You should do 3 simple actions:
 2. Building project (mvn clean install)
 3. Run org.task.library.main.Main as Java Application (mvn exec:java -Dexec.mainClass="org.task.library.main.Main") to start application
 
-To store data, I use database under RDBMS H2. It is automatically created when the application is running for the first time and stored in the folder "data".
+##P.S.
+To store data, I use database under RDBMS H2. It is automatically created when the application is running for the first time and stored in the folder "data". In order to make it easy for you to understand the work of the application, I prepared an example of its execution https://github.com/OlehZanevych/library/blob/master/example.txt
